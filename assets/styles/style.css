@@ -1,0 +1,90 @@
+@font-face{
+	font-family: Inter-Reg;
+	src: url(../fonts/Inter-Regular.ttf);
+}
+@font-face{
+	font-family: Inter-Med;
+	src: url(../fonts/Inter-Medium.ttf);
+}
+@font-face{
+	font-family: Inter-Bold;
+	src: url(../fonts/Inter-Bold.ttf);
+}
+@font-face{
+	font-family: Inter-SemiBold;
+	src: url(../fonts/Inter-SemiBold.ttf);
+}
+@font-face{
+	font-family: Inter-ExBold;
+	src: url(../fonts/Inter-ExtraBold.ttf); 
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+.wrapper{
+	width: 1820px;
+	margin: 0 auto;
+}
+header{
+	padding-bottom: 40px;
+}
+nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 40px;
+}
+.header_list{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 25px;
+	padding-top: 25px;
+}
+.header_list li {
+	list-style-type: none;
+
+}
+.header_list li a {
+	font-family: Inter-Med;
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.header_list li .active {
+	border-bottom: #392D88 2px solid;
+}
+.header_butt{
+	font-family: Inter-Bold;
+	background-color: #392D88;
+	color: white;
+	border-radius: 10px;
+	padding: 25px 50px;
+	font-size: 24px;
+}
+.header_logo{
+	padding-top: 12px;
+}
+.hero_content{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 60px;
+}
+.hero_text p {
+	color: white;
+	font-family: Inter-Bold;
+	font-size: 40px;
+}
+.hero_text{
+	display: flex;
+	flex-direction: column;
+	gap: 10%;
+}
+.hero{
+	background-color: #392D88;
+	height: 650px;
+}
