@@ -18,23 +18,74 @@
 	font-family: Inter-ExBold;
 	src: url(../fonts/Inter-ExtraBold.ttf); 
 }
+<<<<<<< HEAD
 /* Ladding page */
+=======
+
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+<<<<<<< HEAD
 .container {
 	max-width: 1180px; /*ограничиваем контейнер*/
 	margin: 0 auto; /*выравниваем посередине*/
 	padding: 0 10px; /*отступ по бокам*/
 }
+=======
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
 .wrapper{
 	width: 1820px;
 	margin: 0 auto;
 }
+<<<<<<< HEAD
 
 
+=======
+header{
+	padding-bottom: 40px;
+}
+.nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 40px;
+}
+.header_list{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 25px;
+	padding-top: 25px;
+}
+.header_list li {
+	list-style-type: none;
+
+}
+.header_list li a {
+	font-family: Inter-Med;
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.header_list li .active {
+	border-bottom: #392D88 2px solid;
+}
+.header_butt{
+	font-family: Inter-Bold;
+	background-color: #392D88;
+	color: white;
+	border-radius: 10px;
+	padding: 25px 50px;
+	font-size: 24px;
+}
+.header_logo{
+	padding-top: 12px;
+}
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
 .hero_content{
 	display: flex;
 	flex-direction: row;
@@ -50,12 +101,19 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10%;
+<<<<<<< HEAD
 	padding-top: 2%;
 }
 .hero{
 	background-color: #392D88;
 	height: 750px;
 	padding-top: 3%;
+=======
+}
+.hero{
+	background-color: #392D88;
+	height: 650px;
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
 }
 .pt-10{
 	padding-top: 10%;
@@ -236,6 +294,7 @@ li.prev {
 	text-align: center;
 	z-index: 10;
 }
+<<<<<<< HEAD
 
 a.current_dot {
 	transform: scale(1.4);
@@ -661,6 +720,22 @@ html, body, .container_slider, .main { height: 100%;}
 	padding: 4px;
 	}
 	}
+=======
+nav a {
+	display: inline-block;
+	border-radius: 50%;
+	width: 1.2rem;
+	height: 1.2rem;
+    min-width: 12px;
+    min-height: 12px;
+	background: #fff;
+	margin: 0 1rem;
+  transition: transform .3s;
+}
+a.current_dot {
+	transform: scale(1.4);
+}
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
 @media screen and (max-width: 700px) {
 	.left {
 		width: 100%;
@@ -670,6 +745,7 @@ html, body, .container_slider, .main { height: 100%;}
 		width: 100%;
 		height: 70%;
 	}
+<<<<<<< HEAD
 }
 
 /* Modal Window */
@@ -886,3 +962,6 @@ html, body, .container_slider, .main { height: 100%;}
 
   
 /* End Modal Window */
+=======
+}
+>>>>>>> 7cdd4cd9d176d26dc61e8eb5f658b1455d72642e
