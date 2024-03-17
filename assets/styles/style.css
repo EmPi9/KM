@@ -236,17 +236,7 @@ li.prev {
 	text-align: center;
 	z-index: 10;
 }
-nav a {
-	display: inline-block;
-	border-radius: 50%;
-	width: 1.2rem;
-	height: 1.2rem;
-    min-width: 12px;
-    min-height: 12px;
-	background: #fff;
-	margin: 0 1rem;
-  transition: transform .3s;
-}
+
 a.current_dot {
 	transform: scale(1.4);
 }
@@ -425,6 +415,240 @@ a.current_dot {
 	color: white;
 	font-size: 24px;
 }
+/* Slider */
+
+/* Needed for a fluid height: */
+html, body, .container_slider, .main { height: 100%;}
+
+/* main wrapper */
+.cbp-contentslider {
+	width: 100%;
+	height: 100%;
+	margin: 1em auto;
+	position: relative;
+}
+
+.cbp-contentslider > ul {
+	list-style: none;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.cbp-contentslider > ul li {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	padding: 1em;
+	background: #fff;
+}
+
+/* Whithout JS, we use :target */
+.cbp-contentslider > ul li:target {
+	z-index: 100;
+}
+
+.cbp-contentslider .nav_slider {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3.313em;
+	z-index: 1000;
+	border: 4px solid #392D88;
+	
+	overflow: hidden;
+}
+
+.cbp-contentslider .nav_slider a {
+	float: left;
+	display: block;
+	width: 20%;
+	height: 100%;
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	overflow: hidden;
+	color: #000;
+	background: #fff;
+	outline: none;
+	text-align: center;
+	line-height: 3;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	border-right: 4px solid #392D88;
+	-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.cbp-contentslider .nav_slider a span {
+	display: block;
+}
+
+.cbp-contentslider .nav_slider a:last-child {
+	border: none;
+	box-shadow: 1px 0 #392D88; 
+}
+
+.cbp-contentslider .nav_slider a:hover {
+	background-color: #392D88;
+	color: #ffffff;
+	-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.cbp-contentslider .nav_slider a span:hover{
+	color: white;
+	-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.cbp-contentslider .nav_slider a.rc-active {
+	background-color: #392D88;
+	color: #fff;
+}
+
+/* Iconfont for navigation and headings */
+.cbp-contentslider [class^="icon-"]:before, 
+.cbp-contentslider [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	text-align: center;
+	speak: none;
+	font-weight: normal;
+	line-height: 2.5;
+	font-size: 2em;
+	position: absolute;
+	left: 10%;
+	top: 50%;
+	margin: -1.250em 0 0 0;
+	height: 2.500em;
+	width: 2.500em;
+	color: rgba(0,0,0,0.1);
+	-webkit-font-smoothing: antialiased;
+}
+
+.cbp-contentslider .icon-wolf:before {
+	content: "\56";
+}
+
+.cbp-contentslider .icon-rabbit:before {
+	content: "\52";
+}
+
+.cbp-contentslider .icon-turtle:before {
+	content: "\54";
+}
+
+.cbp-contentslider .icon-platypus:before {
+	content: "\42";
+}
+
+.cbp-contentslider .icon-aligator:before {
+	content: "\41";
+}
+
+.cbp-contentslider [class^="icon-"].rc-active:before, 
+.cbp-contentslider [class*=" icon-"].rc-active:before,
+.cbp-contentslider nav a:hover:before {
+	color: rgba(255,255,255,0.9);
+}
+.cbp-content {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.cbp-contentslider h3[class^="icon-"]:before, 
+.cbp-contentslider h3[class*=" icon-"]:before {
+	top: 0;
+	left: 0;
+	width: 2em;
+	line-height: 1;
+	height: 1.2em;
+	margin: 0;
+	color: #392D88;
+}
+
+.cbp-contentslider li > div {
+	position: absolute;
+	top: 10%;
+	bottom: 3.313em;
+	width: 100%;
+	left: 0;
+	padding: 0 1em;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
+
+.cbp-contentslider p {
+	color: #392D88;
+	padding: 0 0.5em 0.4em;
+	margin: 0;
+	font-size: 2.2em;
+	font-weight: 300;
+	text-align: justify;
+	line-height: 1.6;
+}
+
+.cbp-contentslider img {
+	width: 900px;
+	text-align: center;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 70em) { 
+	.cbp-contentslider p {
+		font-size: 100%;
+	}
+}
+
+@media screen and (max-width: 67.75em) {
+
+	.cbp-contentslider { font-size: 85%; }
+
+	.cbp-contentslider nav a[class^="icon-"]:before, 
+	.cbp-contentslider nav a[class*=" icon-"]:before {
+		left: 50%;
+		margin-left: -1.250em;
+	}
+}
+
+@media screen and (max-width: 43em) {
+
+	.cbp-contentslider h3 {
+		font-size: 10px;
+	}
+
+	.cbp-contentslider .cbp-content {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		-o-column-count: 1;
+		column-count: 1;
+	}
+
+	
+}
+
+@media screen and (max-width: 25em) { 
+	.cbp-contentslider nav a { padding: 0;}
+	.cbp-contentslider h3[class^="icon-"]:before, 
+	.cbp-contentslider h3[class*=" icon-"]:before { display: none;}
+}
+
+/* END_Slider */
 /* end Landing page */
 	@media(max-width: 1000px){
 	.gallery .image{
