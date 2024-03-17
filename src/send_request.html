@@ -6,6 +6,7 @@
     <title>Компьютерный Мир</title>
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/animation.css">
 </head>
 <body class="font-inter">
   
@@ -31,12 +32,11 @@
   <section class="text-black body-font relative">
     <div class="px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
-        <h1 class="text-center font-extrabold text-[40px] pb-6">Заявка на проект</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Оставьте заявку, а мы ей рассмотрим в течение дня!</p>
+        <h1 class="text-center font-extrabold text-[40px] pb-6 element_animation top_animation">Заявка на проект</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base element_animation bottom_animation">Оставьте заявку, а мы ей рассмотрим в течение дня!</p>
       </div>
-      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="lg:w-1/2 md:w-2/3 mx-auto element_animation right_animation">
         <div class="flex flex-wrap -m-2">
-
           <div class="p-2 w-full">
             <div class="relative">
               <label for="fio" class="leading-7 text-2xl font-semibold text-black">Фамилия Имя Отчество(при наличии)</label>
@@ -91,6 +91,7 @@
       </div>
     </div>
   </section>
+  <script src="../assets/js/animation_by_scroll.js"></script>
 
 <!-- Footer -->
   <footer class="text-gray-900 body-font p-6">
