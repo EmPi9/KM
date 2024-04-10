@@ -12,7 +12,7 @@ class Authentication{
     }
 
     public function findUser($login) {
-        $sql = 'SELECT id, login, username, email FROM public.users WHERE login = :login LIMIT 1';
+        $sql = 'SELECT id, login, username, email, admin FROM public.users WHERE login = :login LIMIT 1';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':login', $login);
         $stmt->execute();
@@ -44,7 +44,7 @@ class Authentication{
         $findUser = $this->findUser($login);
         $password = md5($password . $this->hash);
         if ($findUser === false){
-            $sql = 'INSERT INTO public.users (login, username, email, password) VALUES (:login, :username, :email, :password)';
+            $sql = 'INSERT INTO public.users (login, username, email, password, admin) VALUES (:login, :username, :email, :password, 0)';
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':login', $login);
             $stmt->bindValue(':username', $username);
@@ -107,8 +107,12 @@ class Authentication{
 
     public function logout() {
         unset($_SESSION['user']);
+        unset($_SESSION['cart']);
+        unset($_SESSION['cart.sum']);
+        unset($_SESSION['cart.qty']);
+        unset($_SESSION['cart.cost']);
     }
-
+   
     public function isAuthed() {
         if (array_key_exists('user', $_SESSION) && $_SESSION['user'] !== null) {
             return true;
