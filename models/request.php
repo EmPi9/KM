@@ -2,9 +2,9 @@
 session_start();
 include_once 'connection.php';
 
-function addRequest($name_request, $name_company, $price_request, $description_request, $date_request, $username, $id) {
+function addRequest($name_request, $name_company, $price_request, $description_request, $date_request, $username, $id, $document_request, $comment_request) {
     $pdo = Connection::get()->connect();
-    $sql = 'INSERT INTO public.requests (name_request, name_company, price_request, description_request, status_request, date_request, username, id) VALUES(:name_request, :name_company, :price_request, :description_request, 0, :date_request, :username, :id)';
+    $sql = 'INSERT INTO public.requests (name_request, name_company, price_request, description_request, status_request, date_request, username, id, document_request, comment_request) VALUES(:name_request, :name_company, :price_request, :description_request, 0, :date_request, :username, :id, :document_request, :comment_request)';
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":name_request", $name_request);
     $statement->bindValue(":name_company", $name_company);
@@ -13,6 +13,8 @@ function addRequest($name_request, $name_company, $price_request, $description_r
     $statement->bindValue(":date_request", $date_request);
     $statement->bindValue(":username", $username);
     $statement->bindValue(":id", $id); 
+    $statement->bindValue(":document_request", $document_request);
+    $statement->bindValue(":comment_request", $comment_request); 
     $statement->execute();
 }
 

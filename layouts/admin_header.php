@@ -197,12 +197,7 @@ $num = 0;
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="./admin_products.php">Продукты</a>
-                  </li>
-                  <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
-                    <a class="w-full" href="">
+                    <a class="w-full" href="./admin_project.php">
                       Проекты
                     </a>
                   </li>
@@ -402,12 +397,7 @@ $num = 0;
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="./admin_products.php">Продукты</a>
-                  </li>
-                  <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
-                    <a class="w-full" href="#">
+                    <a class="w-full" href="./admin_project.php">
                       Проекты
                     </a>
                   </li>

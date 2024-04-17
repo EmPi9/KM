@@ -11,18 +11,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $websiteTitle ?></title>
+    <title>Компьютерный мир</title>
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="../assets/styles/style.css">
     <link rel="stylesheet" href="../assets/styles/animation.css">
-    <? if ($websiteTitle = 'Вакансии'): ?>
-        
-    <?php endif; ?>  
-
-    <? if ($websiteTitle = 'Реализованные проекты'): ?>
-        
-    <?php endif; ?>  
-        
+    <link rel="shortcut icon" href="../assets/img/logo footer.png" type="image/x-icon" />
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="../assets/js/init-alpine.js"></script>
@@ -42,23 +35,21 @@ session_start();
         <a href="./projects.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОЕКТЫ</a>
         <a href="./contact.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">КОНТАКТЫ</a>
         <a href="./vacancy.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ВАКНСИИ</a>
-        <?
-        if (!isset($_SESSION['user'])): ?>
-         <?else: ?>
+        <? if (!isset($_SESSION['user'])): ?>
+         <? else: ?>
           <a href="../src/profile.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ЛИЧНЫЙ КАБИНЕТ</a>
-        <?php endif; ?>  
-
+        <? endif; ?>  
+        
         <? if ($user['admin'] == 1): ?>
         <a href="../src/admin_dashboard.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">Админ-панель</a>       
         <? endif; ?>
       </div>
-
-      <?
-        if (!isset($_SESSION['user'])): ?>
+      
+      <? if (!isset($_SESSION['user'])): ?>
         <a class="">
           <a href="./registration.php" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Регистрация</a>
         </a>
-        <?else: ?>
+        <? else: ?>
         <a class="">
           <a href="./send_request.php" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Оставить заявку</a>
         </a>

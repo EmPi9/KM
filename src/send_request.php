@@ -9,6 +9,8 @@
       <div class="lg:w-1/2 md:w-2/3 mx-auto element_animation right_animation">
       <input id="id" name="id" type="hidden" value="<?=$user['id']?>">
       <input id="username" name="username" type="hidden" value="<?=$user['username']?>">
+      <input id="comment_request" name="comment_request" type="hidden">
+
 
         <div class="flex flex-wrap -m-2">
           <div class="p-2 w-full">

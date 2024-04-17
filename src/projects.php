@@ -1,87 +1,62 @@
-<?php require '../layouts/header.php'; 
-$websiteTitle = 'Реализованные проекты'; ?>
-<link rel="stylesheet" href="../assets/styles/accordion_project.css">
+<?php require '../layouts/header.php'; ?>
+<?php include_once '../models/project.php';
+$projects = getProjects() ?>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компьютерный Мир</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body class="font-inter">
   
-  <h1 class="text-center font-extrabold text-[40px] pb-6 text-black element_animation top_animation">Реализованные проекты</h1>
 
-  <div class="row">
-    <div class="col">
-      <div class="tabs">
-        <div class="tab element_animation bottom_animation">
-          <input type="checkbox" id="chck1">
-          <label class="tab-label" for="chck1">Изготовление автоматической системы разноцветной маркировки заготовок в сталеплавильной линии.</label>
-          <div class="tab-content">
-            <p class="text-center">Заказчик: ОАО “НТЗ ТЭМ-ПО”</p>
-            <p class="text-center pb-10">Год исполнения: 2023 год</p>
-            <div class="flex justify-center">
-              <a href="../src/project_details.html" class="bg-[#392D88] text-[24px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Подробнее</a>
-            </div>
-            </div>
-        </div>
-        <div class="tab element_animation bottom_animation">
-          <input type="checkbox" id="chck3">
-          <label class="tab-label" for="chck3">Разработка системы учета электроэнергии на нефтянных объектах</label>
-          <div class="tab-content">
-            <p class="text-center">Заказчик: ОАО “НТЗ ТЭМ-ПО”</p>
-            <p class="text-center pb-10">Год исполнения: 2023 год</p>
-            <div class="flex justify-center">
-              <a href="../src/project_details.html" class="bg-[#392D88] text-[24px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Подробнее</a>
-            </div>
-          </div>
-        </div>
+<header class="text-gray-900 body-font p-6">
+    <div class="max-w-[1820px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="./index.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <img src="../assets/img/logo 1.png" alt="">
+      </a>
+      <div class="md:ml-auto md:mr-auto flex flex-wrap mb-6 items-center text-base justify-center underline-animation text-gray-900 hover:text-gray-700 relative transition duration-300 ease-in-out md:my-2">
+        <a href="./index.html" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ГЛАВНАЯ</a>
+        <a href="./products.html" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОДУКТЫ</a>
+        <a href="./projects.html" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОЕКТЫ</a>
+        <a href="./contact.html" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">КОНТАКТЫ</a>
+        <a href="./vacancy.html" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ВАКНСИИ</a>
       </div>
+      <a class="">
+        <a href="./send_request.html" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Оставить заявку</a>
+      </a>
     </div>
+  </header> -->
 
-<!-- Если Адпаптация будет не коректно работать, то следует вернуть сюда  <div class="row"> и поиграть с классами CSS-->
-      <div class="tabs">
-        <div class="tab element_animation bottom_animation">
-          <input type="checkbox" id="chck2">
-          <label class="tab-label" for="chck2">Изготовление распределенной интеллектуальной системы видеонаблюдения на объектах нефтедобычи.</label>
-          <div class="tab-content">
-            <p class="text-center">Заказчик: АО "Булгарнефть"</p>
-            <p class="text-center pb-10">Год исполнения: 2023 год</p>
-            <div class="flex justify-center">
-              <a href="../src/project_details.html" class="bg-[#392D88] text-[24px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Подробнее</a>
+  <h1 class="text-center font-extrabold text-[40px]">Завершенные проекты</h1>
+
+  <section class="text-gray-600 body-font">
+      <div class="flex flex-wrap max-w-[1820px] mx-auto">
+
+      <?php foreach ($projects as $project):?>
+        <div class="p-4 md:w-1/3 max-h-12">
+          <div class="h-full border-2 bg-[#392D88] border-black border-opacity-60 rounded-lg overflow-hidden">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="../assets/img/<?= $project['img_project'] ?>" alt="blog">
+            <div class="p-6">
+              <h2 class="tracking-widest text-xs title-font font-medium text-white mb-1 uppercase"><?= $project['type_project']?></h2>
+              <h1 class="title-font text-lg font-medium text-white mb-3"><?= $project['name_project']?></h1>
+              <p class="leading-relaxed mb-5 text-white text-ellipsis overflow-hidden whitespace-no-wrap h-12"><?= $project['desc_project'] ?></p>
+              <div class="flex items-center flex-wrap justify-center">
+                <a href="./project_details.php?id_project=<?= $project['id_project']?>" class="bg-[#392D88] text-white font-semibold px-8 py-2 rounded-xl border-2 border-white hover:bg-white hover:text-[#392D88] transition-all duration-700">Подробнее
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="tab element_animation bottom_animation">
-          <input type="checkbox" id="chck4">
-          <label class="tab-label" for="chck4">Изготовление системы измерения геометрических параметров в линии производства труб ТЭСА 102-220мм.</label>
-          <div class="tab-content">
-            <p class="text-center">Заказчик: АО "Булгарнефть"</p>
-            <p class="text-center pb-10">Год исполнения: 2023 год</p>
-            <div class="flex justify-center">
-              <a href="../src/project_details.html" class="bg-[#392D88] text-[24px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Подробнее</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endforeach;?>
     </div>
-  </div>
-  <script src="../assets/js/animation_by_scroll.js"></script>
+    </section>
+ 
+
+    
 
 <!-- Footer -->
-  <footer class="text-gray-900 body-font p-6">
-    <div class="max-w-[1820px] mx-auto flex flex-wrap justify-between p-5 flex-col md:flex-row items-center">
-      <a class="flex flex-col w-96 title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <img src="../assets/img/logo 1.png" alt="">
-        <p class="pt-2">
-          Улучшим вашу текущую автоматизированную производственную систему или разработаем совершенно новую.
-        </p>
-      </a>
-      <div class="md:ml-auto md:mr-auto flex flex-col flex-wrap gap-3 text-base justify-center underline-animation text-gray-900 hover:text-gray-700 relative transition duration-300 ease-in-out md:my-2">
-        <a class="mr-5 uppercase font-medium text-[24px] text-left cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ГЛАВНАЯ</a>
-        <a class="mr-5 uppercase font-medium text-[24px] text-left cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОДУКТЫ</a>
-        <a class="mr-5 uppercase font-medium text-[24px] text-left cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОЕКТЫ</a>
-        <a class="mr-5 uppercase font-medium text-[24px] text-left cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">КОНТАКТЫ</a>
-        <a class="mr-5 uppercase font-medium text-[24px] text-left cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ВАКНСИИ</a>
-      </div>
-      <div class="md:ml-auto md:mr-auto flex flex-col flex-wrap gap-3 text-base justify-center underline-animation text-gray-900 hover:text-gray-700 relative transition duration-300 ease-in-out md:my-2"">
-        <p class="text-[36px] font-medium pb-5"><span>Телефон</span> : <span class="text-black font-semibold">8 (8553) 312-668</span></p>
-        <p class="text-[36px] font-medium pb-5"><span>Электронная почта:</span>  <span class="text-black font-semibold">info@tatkm.ru</span></p>
-        <a href="./send_request.html" class="bg-[#392D88] text-white text-center font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Оставить заявку</a>
-      </div>
-    </div>
-  </footer>
-
+<?php require '../layouts/footer.php'; ?>
