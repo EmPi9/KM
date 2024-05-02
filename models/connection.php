@@ -3,15 +3,7 @@
 class Connection {
     private static $conn;
 
-<<<<<<< HEAD
     private function __construct(){}
-=======
-    private function __construct(){
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-    }
->>>>>>> f05f0bb391c21d8117dac76ef02659e8494e8d24
 
     /* Возврат экземпляра объекта Connection (паттерн Singleton) */
     public static function get() {

@@ -12,12 +12,12 @@ function uploadImage($image) {
 
 function addProject($cost_project, $name_project, $type_project, $desc_project, $img_project) {
     $pdo = Connection::get()->connect();
-    $sql = 'INSERT INTO public.projects (cost_project, name_project, type_project, desc_project, img_project) VALUES( :cost_project, :name_project, :type_project, :desc_project, :img_project)';
+    $sql = 'INSERT INTO public.projects (cost_project, name_project, type_project, desc_project, status_project, img_project) VALUES( :cost_project, :name_project, :type_project, :desc_project, 0, :img_project)';
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":cost_project", $cost_project);
     $statement->bindValue(":name_project", $name_project);
-    $statement->bindValue(":type_project",  $type_project);
-    $statement->bindValue(":desc_project",  $desc_project);
+    $statement->bindValue(":type_project", $type_project);
+    $statement->bindValue(":desc_project", $desc_project);
     $statement->bindValue(":img_project", $img_project);
     $statement->execute();
 }
@@ -50,15 +50,16 @@ function delProject($id_project){
 }
 
 // Комментарии к проектам 
-function addComment($text_comment, $id_project, $username, $id, $date_comment) {
+function addComment($text_comment, $id_project, $username, $id, $date_comment, $rating_comment) {
     $pdo = Connection::get()->connect();
-    $sql = 'INSERT INTO public.comments (text_comment, id_project, username, id, date_comment) VALUES( :text_comment, :id_project, :username, :id, :date_comment)';
+    $sql = 'INSERT INTO public.comments (text_comment, id_project, username, id, date_comment, rating_comment) VALUES( :text_comment, :id_project, :username, :id, :date_comment, :rating_comment)';
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":text_comment", $text_comment);
     $statement->bindValue(":id_project", $id_project);
     $statement->bindValue(":username",  $username);
     $statement->bindValue(":id",  $id);
     $statement->bindValue(":date_comment", $date_comment);
+    $statement->bindValue(":rating_comment", $rating_comment);
     $statement->execute();
 }
 

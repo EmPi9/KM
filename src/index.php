@@ -11,7 +11,7 @@
         <p class="mb-8 leading-relaxed text-white text-2xl font-medium">Улучшим вашу текущую автоматизированную
           производственную систему или разработаем совершенно новую.</p>
         <div class="flex justify-center content-center m-0">
-          <a href="./send_request.html"
+          <a href="./send_request.php"
             class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-white hover:bg-white hover:text-[#392D88] transition-all duration-700">Оставить
             заявку</a>
         </div>
@@ -25,7 +25,7 @@
   </section>
   <!-- About -->
   <section class="text-black body-font">
-    <h1 class="text-4xl element_animation top_animation  text-center pt-16 font-bold">О нас </h1>
+    <h1 class="text-4xl element_animation top_animation  text-center pt-16 font-bold">О нас</h1>
     <div class="max-w-[1820px] mx-auto flex px-4 py-14 md:flex-row flex-col items-center gap-9">
       <div class="element_animation left">
         <img class="object-cover object-center rounded element_animation left_animation" alt="hero"
@@ -44,7 +44,7 @@
         </h1>
 
         <div class="flex justify-center element_animation bottom_animation">
-          <a href="./products.html"
+          <a href="./projects.php"
             class="bg-[#392D88] text-[24px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Проекты</a>
         </div>
 

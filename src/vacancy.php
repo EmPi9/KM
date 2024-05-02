@@ -161,6 +161,7 @@ $vacancys = getVacancys() ?>
         <div class="flex flex-wrap -m-2">
         <input id="id" name="id" type="hidden" value="<?=$user['id']?>">
         <input id="username" name="username" type="hidden" value="<?=$user['username']?>">
+        <input id="email" name="email" type="hidden" value="<?=$user['email']?>">
 
           <div class="p-2 w-full">
             <div class="relative">
@@ -187,9 +188,17 @@ $vacancys = getVacancys() ?>
           <div class="p-2 w-1/2">
             <div class="relative">
               <label for="name_resume" class="leading-7 text-2xl font-semibold text-black">Образование*</label>
-              <input type="text" required id="education_resume" name="education_resume" class="w-full mt-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <select type="text" required id="education_resume" name="education_resume" class="w-full mt-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <option>Среднее профессиональное образование</option>
+                <option>Высшее образование - бакалавриат</option>
+                <option>Высшее образование - специалитет, магистратура</option>
+                <option>Высшее образование - кадров высшей квалификации</option>
+                <option>Два высших образования</option>
+                <option>Другое образование</option>
+              </select>
             </div>
           </div>
+
 
           <div class="p-2 w-1/2">
             <div class="relative">
@@ -213,9 +222,22 @@ $vacancys = getVacancys() ?>
 
 
         </div>
-        <div class="p-2 flex justify-center text-center pt-10 element_animation bottom_animation">
+
+        <div class="p-2 flex justify-between text-center pt-10">
+        <? if (!isset($_SESSION['user'])): ?>
+          <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Зарегестрируйтесь</a> <p>или</p>  <a href="./login.php" class="leading-7 text-2xl font-semibold text-black">Авторизируйтесь</a>
+        <?else: ?>
+          <div class="p-2 flex justify-center text-center pt-10 element_animation bottom_animation">
           <button href="" class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
         </div>
+        <?php endif; ?>  
+        </div>
+
+       
+
+
+
+
       </div>
     </div>
   </section>

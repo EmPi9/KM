@@ -15,7 +15,7 @@ $name_request = $_POST['name_request'];
 $name_company= $_POST['name_company'];
 $price_request = $_POST['price_request'];
 $description_request= $_POST['description_request'];
-$date_request = date (" d/m/Y");
+$date_request = date ("d.m.Y");
 $username = $_POST['username'];
 $id = $_POST['id'];
 

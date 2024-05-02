@@ -15,8 +15,8 @@ $requests = getRequests() ?>
                     <tr
                       class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
                     >
-                      <th class="px-4 py-3">Клиент</th>
                       <th class="px-4 py-3">Название</th>
+                      <th class="px-4 py-3">Клиент</th>
                       <th class="px-4 py-3">Компания</th>
                       <th class="px-4 py-3">Статус</th>
                       <th class="px-4 py-3">Действие</th>
@@ -31,15 +31,20 @@ $requests = getRequests() ?>
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
                           <div>
-                            <p class="font-semibold"><?= $request['username']?></p>
+                          <p class="font-semibold"><?= $request['name_request']?></p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">
+                        <?= $request['id_request']?>
+                            </p>
+                           
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        <?= $request['name_request']?>
+                      <?= $request['username']?>
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <?= $request['name_company']?>
+                          
                       </td>
                       <td class="px-4 py-3 text-sm">
                       <? if ($request['status_request'] == 0): ?>
@@ -72,8 +77,6 @@ $requests = getRequests() ?>
                 
               </div>
             </div>
-
-
             
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">

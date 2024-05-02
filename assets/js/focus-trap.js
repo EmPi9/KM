@@ -8,6 +8,8 @@ function focusTrap(element) {
   const firstFocusableEl = focusableElements[0]
   const lastFocusableEl = focusableElements[focusableElements.length - 1]
 
+
+
   // Wait for the case the element was not yet rendered
   setTimeout(() => firstFocusableEl.focus(), 50)
 

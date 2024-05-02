@@ -9,7 +9,8 @@ $about_resume= $_POST['about_resume'];
 $id = $_POST['id'];
 $name_vacancy = $_POST['name_vacancy'];
 $username = $_POST['username'];
+$email = $_POST['email'];
 
-addResume($exp_resume, $skill_resume, $achiv_resume, $education_resume, $about_resume, $id, $name_vacancy, $username);
+addResume($exp_resume, $skill_resume, $achiv_resume, $education_resume, $about_resume, $id, $name_vacancy, $username, $email);
 
 header('Location: ../src/profile.php');

@@ -137,8 +137,10 @@ $requests = getRequests() ?>
                   </thead>
 
                   <tbody
-                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                             
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                  >
+                
+
                   <?php foreach($requests as $request):?>
                     <? if ($request['status_request'] == 1): ?>
                     <tr class="text-gray-700 dark:text-gray-400">

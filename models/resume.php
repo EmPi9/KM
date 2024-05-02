@@ -2,9 +2,9 @@
 session_start();
 include_once 'connection.php';
 
-function addResume($exp_resume, $skill_resume, $achiv_resume, $education_resume, $about_resume, $id, $name_vacancy, $username) {
+function addResume($exp_resume, $skill_resume, $achiv_resume, $education_resume, $about_resume, $id, $name_vacancy, $username, $email) {
     $pdo = Connection::get()->connect();
-    $sql = 'INSERT INTO public.resume (exp_resume, skill_resume, achiv_resume, education_resume, about_resume, id, name_vacancy, username, status_resume) VALUES(:exp_resume, :skill_resume, :achiv_resume, :education_resume, :about_resume, :id, :name_vacancy, :username, 0)';
+    $sql = 'INSERT INTO public.resume (exp_resume, skill_resume, achiv_resume, education_resume, about_resume, id, name_vacancy, username, email, status_resume) VALUES(:exp_resume, :skill_resume, :achiv_resume, :education_resume, :about_resume, :id, :name_vacancy, :username, :email, 0)';
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":exp_resume", $exp_resume);
     $statement->bindValue(":skill_resume", $skill_resume);
@@ -14,6 +14,7 @@ function addResume($exp_resume, $skill_resume, $achiv_resume, $education_resume,
     $statement->bindValue(":name_vacancy", $name_vacancy);
     $statement->bindValue(":username", $username);
     $statement->bindValue(":id", $id); 
+    $statement->bindValue(":email", $email); 
     $statement->execute();
 }
 
