@@ -1,13 +1,14 @@
 <?
 include_once '../models/project.php';
 
-$id_project = $_POST['id_project'];
+$id_project = $_GET['id_project'];
 $status_project = "1";
 
-updateProject($status_project, $id_project);
- function updateproject($status_project, $id_project){
-      $pdo = Connection::get()->connect();
-      $sql = 'UPDATE public.projects
+archProject($status_project, $id_project);
+
+function archProject($status_project, $id_project){
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.projects
     SET status_project=:status_project
     WHERE id_project=:id_project;';
     $statement = $pdo->prepare($sql);

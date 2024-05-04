@@ -120,11 +120,15 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                                             Блокировака пользователя <?= $user['username'] ?>
                                             </p>
                                         <a  href="../controllers/adminDeleteUser.php?id=<?=$user['id']?>" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Заблокировать</a>
-                                    </div>
+                                                  
+                                      </div>
                                 </div>
                             </div>
                         </div>
                         </div>
+
+
+
 
                         <div id="edit<?= $user['id'] ?>" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
                             <div class="relative w-full h-full max-w-md md:h-auto">

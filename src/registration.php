@@ -27,7 +27,15 @@
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Пароль" />
-                        
+                    <div class="alert alert-danger mt-3 d-none" id="error-block"></div>
+                    <?php
+                
+                        if($_SESSION['message']) {
+                        echo '<p> ' . $_SESSION['message'] . '</p>';
+                        }
+                        unset($_SESSION['message']);
+                    
+                    ?>
                     <div class="text-center">
                         <button type="submit" class="bg-[#392D88] text-center text-[14px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">
                                         Создать аккаунт
@@ -43,7 +51,7 @@
                         </a>
                     </div>
                 </div>
-
+                    </form>
                 <div class="text-grey-dark mt-6">
                     У вас уже есть аккаунт? 
                     <a class="no-underline border-b border-blue text-blue" href="../src/login.php">
@@ -52,4 +60,5 @@
                 </div>
             </div>
         </div>
+     
         <?php require '../layouts/footer.php'; ?>
