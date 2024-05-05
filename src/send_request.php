@@ -26,7 +26,7 @@
       <input id="id" name="id" type="hidden" value="<?=$user['id']?>">
       <input id="username" name="username" type="hidden" value="<?=$user['username']?>">
       <input id="comment_request" name="comment_request" type="hidden">
-
+      <input id="signed_request" name="signed_request" type="hidden">
 
         <div class="flex flex-wrap -m-2">
           <div class="p-2 w-full element_animation right_animation">
@@ -124,13 +124,19 @@
           </div>
         </div>
 
-        <div class="p-2 flex justify-between text-center pt-10 element_animation right_animation">
         <? if (!isset($_SESSION['user'])): ?>
+        <div class="p-2 flex justify-between text-center pt-10">
           <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Зарегестрируйтесь</a> <p>или</p>  <a href="./login.php" class="leading-7 text-2xl font-semibold text-black">Авторизируйтесь</a>
-        <?else: ?>
-          <button href="" class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
-        <?php endif; ?>  
         </div>
+        <? elseif ($user['admin'] == 4): ?>
+        <div class="p-2 flex justify-center text-center pt-10">
+        <a class="leading-7 text-2xl font-semibold text-black">Вы заблокированы администрицией сайта!</a>
+        </div>
+          <? else: ?>
+        <div class="p-2 flex justify-center text-center pt-10">
+          <button class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
+        </div>
+        <?php endif; ?>  
 
       </div>
     </form>
@@ -163,13 +169,21 @@
           </div>
 
         
-        <div class="p-2 flex justify-between text-center pt-10">
+        
         <? if (!isset($_SESSION['user'])): ?>
+        <div class="p-2 flex justify-between text-center pt-10">
           <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Зарегестрируйтесь</a> <p>или</p>  <a href="./login.php" class="leading-7 text-2xl font-semibold text-black">Авторизируйтесь</a>
-        <?else: ?>
-          <button href="" class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
-        <?php endif; ?>  
         </div>
+        <? elseif ($user['admin'] == 4): ?>
+        <div class="p-2 flex justify-center text-center pt-10">
+        <a class="leading-7 text-2xl font-semibold text-black">Вы заблокированы администрицией сайта!</a>
+        </div>
+          <? else: ?>
+        <div class="p-2 flex justify-center text-center pt-10">
+          <button class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
+        </div>
+        <?php endif; ?>  
+        
 
       </div>
     </form>

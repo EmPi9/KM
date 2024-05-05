@@ -23,9 +23,9 @@ function addRequestDocs($name_company, $date_request, $username, $id, $document_
     $statement->execute();
 }
 
-function addRequest($name_request, $name_company, $price_request, $description_request, $date_request, $username, $id, $document_request, $comment_request, $reliability_request, $manufacturability_request, $security_request, $documentation_equipment_request, $program_request, $acceptance_request, $warranty_request) {
+function addRequest($name_request, $name_company, $price_request, $description_request, $date_request, $username, $id, $document_request, $comment_request, $reliability_request, $manufacturability_request, $security_request, $documentation_equipment_request, $program_request, $acceptance_request, $warranty_request, $sign_request) {
     $pdo = Connection::get()->connect();
-    $sql = 'INSERT INTO public.requests (name_request, name_company, price_request, description_request, status_request, date_request, username, id, document_request, comment_request, reliability_request, manufacturability_request, security_request, documentation_equipment_request, program_request, acceptance_request, warranty_request) VALUES(:name_request, :name_company, :price_request, :description_request, 0, :date_request, :username, :id, :document_request, :comment_request, :reliability_request, :manufacturability_request, :security_request, :documentation_equipment_request, :program_request, :acceptance_request, :warranty_request)';
+    $sql = 'INSERT INTO public.requests (name_request, name_company, price_request, description_request, status_request, date_request, username, id, document_request, comment_request, reliability_request, manufacturability_request, security_request, documentation_equipment_request, program_request, acceptance_request, warranty_request, sign_request) VALUES(:name_request, :name_company, :price_request, :description_request, 0, :date_request, :username, :id, :document_request, :comment_request, :reliability_request, :manufacturability_request, :security_request, :documentation_equipment_request, :program_request, :acceptance_request, :warranty_request, :sign_request)';
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":name_request", $name_request);
     $statement->bindValue(":name_company", $name_company);
@@ -42,7 +42,8 @@ function addRequest($name_request, $name_company, $price_request, $description_r
     $statement->bindValue(":documentation_equipment_request", $documentation_equipment_request);
     $statement->bindValue(":program_request", $program_request);
     $statement->bindValue(":acceptance_request", $acceptance_request);
-    $statement->bindValue(":warranty_request", $warranty_request);    
+    $statement->bindValue(":warranty_request", $warranty_request);
+    $statement->bindValue(":sign_request", $sign_request);    
     $statement->execute();
 }
 

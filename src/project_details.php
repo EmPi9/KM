@@ -223,9 +223,15 @@ $comments = getComments();
 </div>
 <h2 class="text-left font-extrabold text-[36px] pl-20">Оставить комментарий к проекту:</h2>
 <div class="p-2 flex justify-between w-1/2 mx-auto text-center ">
+
+
         <? if (!isset($_SESSION['user'])): ?>
           <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Зарегестрируйтесь</a> <p>или</p>  <a href="./login.php" class="leading-7 text-2xl font-semibold text-black">Авторизируйтесь</a>
-        <?else: ?>
+          <? elseif ($user['admin'] == 4): ?>
+        <div class="p-2 flex justify-center text-center pt-10">
+            <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Вы заблокированы администрицией сайта!</a>
+        </div>
+          <?else: ?>
           <form action="../controllers/addComment.php" method="post" enctype="multipart/form-data" >
               <input id="id" name="id" type="hidden" value="<?=$user['id']?>">
               <input id="username" name="username" type="hidden" value="<?=$user['username']?>">

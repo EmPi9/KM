@@ -1,7 +1,7 @@
 <?
 include_once '../models/project.php';
 
-$id_project = $_POST['id_project'];
+$id_project = $_GET['id_project'];
 $status_project = "0";
 
 updateProject($status_project, $id_project);
