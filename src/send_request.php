@@ -173,6 +173,12 @@
         <? if (!isset($_SESSION['user'])): ?>
         <div class="p-2 flex justify-between text-center pt-10">
           <a href="./registration.php" class="leading-7 text-2xl font-semibold text-black">Зарегестрируйтесь</a> <p>или</p>  <a href="./login.php" class="leading-7 text-2xl font-semibold text-black">Авторизируйтесь</a>
+<<<<<<< HEAD
+=======
+        <?else: ?>
+          <button class="bg-[#392D88] text-[24px] text-white font-semibold px-10 py-2 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Отправить</button>
+        <?php endif; ?>  
+>>>>>>> 3c4f78e608d6dc60e392c81d2ecee6fb1be58aac
         </div>
         <? elseif ($user['admin'] == 4): ?>
         <div class="p-2 flex justify-center text-center pt-10">

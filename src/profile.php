@@ -1,7 +1,4 @@
 <?php require '../layouts/header.php'; ?>
-<?php include_once '../models/resume.php';
-$resumes = getResumes();  
-?>
 
  <div class="container px-5 py-12 mx-auto ">
     <div class="flex flex-wrap text-center -m-4">
