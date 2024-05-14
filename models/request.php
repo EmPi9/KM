@@ -73,3 +73,28 @@ function delRequest($id_request){
     $statement->execute([$id_request]);
     return true;
 }
+
+function editRequest($name_request, $name_company, $price_request, $description_request, $date_request, $username, $id, $document_request, $comment_request, $reliability_request, $manufacturability_request, $security_request, $documentation_equipment_request, $program_request, $acceptance_request, $warranty_request, $sign_request, $id_request) {
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.requests SET name_request=:name_request, name_company=:name_company, price_request=:price_request,description_request=:description_request, status_request=0, date_request=:date_request, username=:username, id=:id, document_request=:document_request, comment_request=:comment_request, reliability_request=:reliability_request, manufacturability_request=:manufacturability_request, security_request=:security_request, documentation_equipment_request=:documentation_equipment_request, program_request=:program_request, acceptance_request=:acceptance_request, warranty_request=:warranty_request, sign_request=:sign_request WHERE id_request=:id_request;';
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":name_request", $name_request);
+    $statement->bindValue(":name_company", $name_company);
+    $statement->bindValue(":price_request", $price_request);
+    $statement->bindValue(":description_request", $description_request);
+    $statement->bindValue(":date_request", $date_request);
+    $statement->bindValue(":username", $username);
+    $statement->bindValue(":id", $id); 
+    $statement->bindValue(":document_request", $document_request);
+    $statement->bindValue(":comment_request", $comment_request);
+    $statement->bindValue(":reliability_request", $reliability_request);
+    $statement->bindValue(":manufacturability_request", $manufacturability_request);
+    $statement->bindValue(":security_request", $security_request);
+    $statement->bindValue(":documentation_equipment_request", $documentation_equipment_request);
+    $statement->bindValue(":program_request", $program_request);
+    $statement->bindValue(":acceptance_request", $acceptance_request);
+    $statement->bindValue(":warranty_request", $warranty_request);
+    $statement->bindValue(":sign_request", $sign_request);
+    $statement->bindValue(":id_request", $id_request);   
+    $statement->execute();
+}

@@ -134,7 +134,7 @@ $requests = getRequests();
             </h1>
             <h1 class="title-font text-lg font-medium text-white mb-10">Название завявки: <?= $request['name_request'] ?></h1>
             <div class="flex flex-wrap">
-                <a href="../src/request_return_details.php?id_request=<?= $request['id_request']?>" class="px-2 py-1 mx-10 font-semibold text-white px-10 py-4 rounded-xl border-2 border-white">Подробнее</a>
+                <a href="../src/request_return_edit.php?id_request=<?= $request['id_request']?>" class="px-2 py-1 mx-10 font-semibold text-white px-10 py-4 rounded-xl border-2 border-white">Отредактировать</a>
                 <a href="../assets/documents/<?=$request['document_request']?>" class="px-2 py-1 mx-10 font-semibold text-white px-10 py-4 rounded-xl border-2 border-white">Скачать ТЗ</a>
             </div>                   
         </div>
