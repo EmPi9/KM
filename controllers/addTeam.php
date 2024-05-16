@@ -1,11 +1,14 @@
 <?php
-include_once '../models/authentication .php';
+include_once '../models/team.php';
  
-$name_vacancy = $_POST['name_vacancy'];
-$respons_vacancy = $_POST['respons_vacancy'];
-$requir_vacancy = $_POST['requir_vacancy'];
-$conditions_vacancy= $_POST['conditions_vacancy'];
+$name_team = $_POST['name_team'];
+$employee1_team = $_POST['employee1_team'];
+$employee2_team = $_POST['employee2_team'];
+$employee3_team = $_POST['employee3_team'];
+$employee3_team = $_POST['employee3_team'];
+$employee4_team = $_POST['employee4_team'];
+$employee5_team = $_POST['employee5_team'];
 
-addVacancy($name_vacancy, $respons_vacancy, $requir_vacancy, $conditions_vacancy);
+addTeam($name_team, $employee1_team, $employee2_team, $employee3_team, $employee4_team, $employee5_team);
 
- header('Location: ../src/admin_vacancy.php');
+header('Location: ../src/admin_team.php');

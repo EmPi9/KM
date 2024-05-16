@@ -2,6 +2,8 @@
 <?php include_once '../models/request.php';
 $request = getRequest($_GET['id_request']);
 ?>
+<?php include_once '../models/team.php'; 
+$teams = getTeams() ?>
 <?php
 include_once '../models/connection.php';
 $pdo = Connection::get()->connect();
@@ -77,9 +79,9 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </span>
                 <select id="worker_request" name="worker_request" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-multiselect focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   multiple>
-                  <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
+                  <?php foreach($teams as $team) :?>
+                    <?php if($team['status_team'] == 0): ?>
+                  <option><?= $team['id_team'] ?> <?= $team['name_team'] ?></option>
                       <?php endif; ?>
                   <?php endforeach;?>
                 </select>
