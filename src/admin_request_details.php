@@ -38,14 +38,14 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
               <div>
                 <!-- Кнопки "Принять" и "Отклонить" -->
                 <div class="flex items-center space-x-4 text-sm">
-
+                <? if ($request['status_request'] == 0): ?>
               <button data-modal-target="accept" data-modal-toggle="accept"
                 class="px-10 py-4 text-xl font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                 aria-label="Edit"
               >
                 Принять
               </button>
-
+              <?php endif;?>
 
               <button data-modal-target="deneid" data-modal-toggle="deneid"
                 class="px-10 py-4 text-xl font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100"
@@ -89,7 +89,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 
               </label> <br>
               <button type="submit" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Принять</button>
-                        
+                    </form>          
                     </div>
                 </div>
             </div>
@@ -106,9 +106,9 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </button>
                 
                   <div class="px-6 py-6 mx-auto lg:px-8">
-                      <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Отклонить заявку №<?=$request['id_request']?></h3>
-                      <form action="../controllers/deniedRequest.php" method="post" enctype="multipart/form-data" >
-            <input id="id_request" name="id_request" type="hidden" value="<?=$request['id_request']?>">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Отклонить заявку №<?=$request['id_request']?></h3>
+                    <form action="../controllers/deniedRequest.php" method="post" enctype="multipart/form-data" >
+                      <input id="id_request" name="id_request" type="hidden" value="<?=$request['id_request']?>">
                 <p class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">
 
                 </p>

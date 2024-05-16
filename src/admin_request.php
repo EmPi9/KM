@@ -26,7 +26,7 @@ $requests = getRequests() ?>
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                   <?php foreach($requests as $request):?>
-                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3): ?>
+                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3 or $request['status_request'] == 0): ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
@@ -53,7 +53,7 @@ $requests = getRequests() ?>
                       </span>
                       <? elseif ($request['status_request'] == 1): ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          Принято
+                          Принято на подписи
                       </span>
                       <?  elseif (($request['status_request'] == 3)): ?>
                             <span
@@ -107,7 +107,7 @@ $requests = getRequests() ?>
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                   <?php foreach($requests as $request):?>
-                    <? if ($request['status_request'] == 1 or $request['status_request'] == 2): ?>
+                    <? if ($request['status_request'] == 2): ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
@@ -129,7 +129,7 @@ $requests = getRequests() ?>
                       </span>
                       <? elseif ($request['status_request'] == 1): ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          На подписи
+                          Принято на подписи
                       </span>
                       <? elseif ($request['status_request'] == 3): ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100">
