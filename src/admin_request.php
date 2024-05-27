@@ -26,7 +26,7 @@ $requests = getRequests() ?>
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                   <?php foreach($requests as $request):?>
-                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3 or $request['status_request'] == 0): ?>
+                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3 or $request['status_request'] == 0 or $request['status_request'] == 2): ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
@@ -132,9 +132,9 @@ $requests = getRequests() ?>
                           Принято на подписи
                       </span>
                       <? elseif ($request['status_request'] == 3): ?>
-                      <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100">
-                          В разработке 
-                      </span>
+                        <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                          В разработке
+                        </span>
                       <? else: ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
                           Отклонено

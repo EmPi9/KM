@@ -158,20 +158,9 @@ $requests = getRequests() ?>
                         <?= $request['name_company']?>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                      <? if ($request['status_request'] == 0): ?>
-                      <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
-                          В ожидании
-                      </span>
-                      <? elseif ($request['status_request'] == 1): ?>
-                      <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          Принято
-                      </span>
-                      <? else: ?>
-                      <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                          Отклонено
-                      </span>
-                      <? endif; ?>
-
+                      <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                          В разработке
+                        </span>
                       </td>
                       <td>
                       <a href="./request.php?id_request=<?= $request['id_request']?>" class="px-4 py-3 text-sm">Подробнее</a>

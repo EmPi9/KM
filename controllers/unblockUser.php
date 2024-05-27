@@ -2,7 +2,7 @@
 include_once '../models/authentication.php';
 include_once './../models/connection.php';
 $id = $_GET['id'];
-$admin = "0";
+$admin = "Пользователь";
 
 updateUser($admin, $id);
  function updateUser($admin, $id){

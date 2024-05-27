@@ -21,52 +21,40 @@
                   </div>
                   <div class="p-2 w-1/2">
                     <div class="relative">
-                      <label for="email" class="leading-7 text-sm text-gray-600">Ваше имя</label>
-                      <input value=<?= $user['username'] ?> type="text" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E] focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
-                  </div>
-                  <div class="p-2 w-1/2">
-                    <div class="relative">
                       <label for="tel" class="leading-7 text-sm text-gray-600">E-mail</label>
                       <input value=<?= $user['email'] ?> type="text" name="username" id="username" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E] focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                   </div>
 
-                  <div class="p-2 w-1/2">
+                  <div class="p-2 w-full">
                     <div class="relative">
-                      <label for="name" class="leading-7 text-sm text-gray-600">Старый пароль</label>
-                      <input type="password" minlength="6" name="oldPassword" id="oldPassword" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E]focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
-                  </div>
-                  <div class="p-2 w-1/2">
-                    <div class="relative">
-                      <label for="message" class="leading-7 text-sm text-gray-600">Новый пароль</label>
-                      <input type="password" minlength="6" name="password" id="password" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E] focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
-                  </div>
-                  <div class="p-2  w-1/2">
-                    <div class="relative">
-                      <label for="message" class="leading-7 text-sm text-gray-600">Повторите Новый пароль</label>
-                      <input type="password" minlength="6" name="confirmPassword" id="confirmPassword" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E] focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      <label for="email" class="leading-7 text-sm text-gray-600">Ваше имя</label>
+                      <input value=<?= $user['username'] ?> type="text" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border[#F56E1E] focus:bg-white focus:ring-2 focus:ring-[#F56E1E] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                   </div>
 
-                  <div class="p-2 mt-4 justify-center">
-                  <a href="#" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">СОХРАНИТЬ</a>
+                
+
+    
+                  <div class="flex gap-2 p-2 mt-4 justify-center">
+                      <a href="./edit_profile.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">ИЗМЕНИТЬ ДАННЫЕ</a>
                   </div>
 
-                  <div class="p-2 mt-4 justify-center">
+                  <div class="flex gap-2 p-2 mt-4 justify-center">
+                      <a href="./edit_password.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">ИЗМЕНИТЬ ПАРОЛЬ</a>
+                  </div>
+
+                  <div class="flex gap-2 p-2 mt-4 justify-center">
                   <a href="../src/request_return.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">МОИ ЗАЯВКИ</a>
                   </div>
 
-                  <div class="p-2 mt-4 justify-center">
+                  <div class="flex gap-2 p-2 mt-4 justify-center">
                   <a href="../src/resume_return.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">РЕЗЮМЕ</a>
                   </div>
 
-                  <div class="p-2 mt-4 justify-center">
+                  <div class="flex gap-2 p-2 mt-4 justify-center">
                   <a href="../controllers/logout.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">ВЫЙТИ</a>
                   </div>
-
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 
           <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-              Добавление бригад с сотрудниками
+              Добавление бригад
             </h4>
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
@@ -31,88 +31,13 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Название"></textarea>
               </label>
-
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                  1 Сотрудник
-                </span>
-                <select required id="employee1_team" name="employee1_team"
-                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
-                <option>Отсутствует</option>
-                <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
-                      <?php endif; ?>
-                  <?php endforeach;?>
-                </select>
-              </label>
-
-
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                  2 Сотрудник
-                </span>
-                <select id="employee2_team" name="employee2_team"
-                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
-                <option>Отсутствует</option>
-                <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
-                      <?php endif; ?>
-                  <?php endforeach;?>
-                </select>
-              </label>
-
-
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                  3 Сотрудник
-                </span>
-                <select id="employee3_team" name="employee3_team"
-                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
-                <option>Отсутствует</option>
-                <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
-                      <?php endif; ?>
-                  <?php endforeach;?>
-                </select>
-              </label>
-
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                  4 Сотрудник
-                </span>
-                <select id="employee4_team" name="employee4_team"
-                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
-                <option>Отсутствует</option>
-                <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
-                      <?php endif; ?>
-                  <?php endforeach;?>
-                </select>
-              </label>
-
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                  5 Сотрудник
-                </span>
-                <select id="employee5_team" name="employee5_team"
-                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
-                <option>Отсутствует</option>
-                <?php foreach($users as $user) :?>
-                    <?php if($user['admin'] == 2): ?>
-                  <option><?= $user['id'] ?> <?= $user['username'] ?></option>
-                      <?php endif; ?>
-                  <?php endforeach;?>
-                </select>
-              </label>
+<br>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Описание бригады</span>
+                <textarea name="desc_team" id="desc_team"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Для чего нужна бригада?"></textarea>
+              </label>     
 <br>
 
               <button type="submit"
@@ -122,11 +47,6 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </button>
             </div>
             </form>
-
-
-
-
-
 
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
@@ -168,11 +88,11 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                       </td>
 
                       <td class="px-4 py-3 text-xs">
-                        1. <?= $team['employee1_team'] ?><br>
-                        2. <?= $team['employee2_team'] ?><br>
-                        3. <?= $team['employee3_team'] ?><br>
-                        4. <?= $team['employee4_team'] ?><br>
-                        5. <?= $team['employee5_team'] ?><br>
+                      <?php foreach($users as $user) :?>
+                        <? if ($user['team_name'] == $team['name_team']): ?>
+                          <?= $user['username'] ?> <br>
+                        <? endif; ?>
+                      <?php endforeach; ?>     
                       </td>
 
                       <td class="px-4 py-3 text-sm">

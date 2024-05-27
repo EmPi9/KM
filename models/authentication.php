@@ -40,16 +40,17 @@ class Authentication{
         return false;
     }
 
-    public function register($login, $username, $email, $password) {
+    public function register($login, $username, $email, $password, $admin) {
         $findUser = $this->findUser($login);
         $password = md5($password . $this->hash);
         if ($findUser === false){
-            $sql = 'INSERT INTO public.users (login, username, email, password, admin) VALUES (:login, :username, :email, :password, 0)';
+            $sql = 'INSERT INTO public.users (login, username, email, password, admin) VALUES (:login, :username, :email, :password, :admin)';
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':login', $login);
             $stmt->bindValue(':username', $username);
             $stmt->bindValue(':email', $email);
             $stmt->bindValue(':password', $password);
+            $stmt->bindValue(':admin', $admin);
             $stmt->execute();
             $_SESSION['user'] = $login;
             $last_id = $this->pdo->lastInsertId();
@@ -73,6 +74,7 @@ class Authentication{
         }
         return false;
     }
+
 
     public function delete($login) {
         $findUser = $this->findUser($login);
@@ -127,4 +129,15 @@ class Authentication{
         }
         return false;
     }
+}
+
+function editRole($admin, $specialty, $team_name, $id) {
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.users SET admin=:admin, specialty=:specialty, team_name=:team_name  WHERE id=:id;';
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":admin", $admin);
+    $statement->bindValue(":specialty", $specialty);
+    $statement->bindValue(":team_name", $team_name);  
+    $statement->bindValue(":id", $id);  
+    $statement->execute();
 }

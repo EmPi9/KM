@@ -4,6 +4,7 @@
                 <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                     <h1 class="mb-6 text-3xl text-center">Регистрация</h1>
                 <form action="../controllers/registrationUser.php" method="post">
+                <input id="admin" name="admin" type="hidden" value="Пользователь">
                     <input 
                         type="text" name="username" id="username"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -27,7 +28,11 @@
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Пароль" />
-                    <div class="alert alert-danger mt-3 d-none" id="error-block"></div>
+
+                    
+                    
+                    <div class="hidden border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 " id="errorBlock"></div>
+                    <div class="hidden border border-green-400 rounded bg-green-100 px-4 py-3 text-green-700 " id="successBlock"></div>
 
                     <div class="text-center">
                         <button type="submit" class="bg-[#392D88] text-center text-[14px] text-white font-bold px-20 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">

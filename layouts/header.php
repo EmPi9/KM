@@ -32,28 +32,29 @@ session_start();
       </a>
       <div class="md:ml-auto md:mr-auto flex flex-wrap mb-6 items-center element_animation top_animation text-base justify-center underline-animation text-gray-900 hover:text-gray-700 relative transition duration-300 ease-in-out md:my-2">
         <a href="./index.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ГЛАВНАЯ</a>
-        <!-- <a href="./products.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОДУКТЫ</a> -->
         <a href="./projects.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ПРОЕКТЫ</a>
         <a href="./contact.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">КОНТАКТЫ</a>
         <a href="./vacancy.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ВАКНСИИ</a>
+        <a href="./about_project.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">О ПРОЕКТЕ</a>
         <? if (!isset($_SESSION['user'])): ?>
          <? else: ?>
           <a href="../src/profile.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">ЛИЧНЫЙ КАБИНЕТ</a>
         <? endif; ?>  
         
 
-        <?php if (is_array($user) && $user['admin'] == 1): ?>
+        <?php if (is_array($user) && $user['admin'] == 'Администратор'): ?>
         <a href="../src/admin_dashboard.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">Админ-панель</a> 
-        <?php elseif (is_array($user) && $user['admin'] == 2): ?>
+        <?php elseif (is_array($user) && $user['admin'] == 'Сотрудник'): ?>
         <a href="../src/admin_dashboard_employee.php" class="mr-5 uppercase font-bold cursor-pointer hover:text-[#392D88] hover:transition-all ease-in-out">Панель сотрудника</a> 
         <? endif; ?>
 
 
       </div>
       <? if (!isset($_SESSION['user'])): ?>
-        <a class="">
+          <div class="flex gap-4">
           <a href="./registration.php" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Регистрация</a>
-        </a>
+          <a href="./login.php" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Авторизация</a>
+          </div>
         <? else: ?>
         <a class="">
           <a href="./send_request.php" class="bg-[#392D88] text-white font-bold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">Оставить заявку</a>

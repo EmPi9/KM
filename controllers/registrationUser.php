@@ -9,8 +9,10 @@ $login = $_POST['login'];
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$admin = $_POST['admin'];
 
-$userId = $auth->register($login, $username, $email, $password);
+
+$userId = $auth->register($login, $username, $email, $password, $admin);
 
 $error = '';
 if ($username === '') {
@@ -38,7 +40,7 @@ $stmt->execute();
 if ($stmt->rowCount() > 0) {
     $error .= '<p class="error">Этот адрес уже зарегистрирован!</p>';
 } else {
-    $userId = $auth->register($login, $username, $email, $password);
+    $userId = $auth->register($login, $username, $email, $password, $admin);
     if (!$userId) {
         $error .= '<p class="error">Неверные данные!</p>';
     }

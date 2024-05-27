@@ -84,50 +84,7 @@
       </div>
     </div>
   </section>
-
-
-  <!-- <section class="intro wrapper">
-            <div class="left">
-              <div>
-                <h1 class="slider_title"><span>Автоматизация </span> производства </h1>
-                <p class="slider_text  ">Предоставляем полный спектр услуг по промышленной автоматизации, включая проектирование, внедрение и обслуживание автоматизированных систем управления.</p>
-                <div class="about_butt_center">
-                    <a href="" class="slider_butt">Оставить заявку</a>
-                </div> 
-              </div>
-            </div>
-      
-            <div class="slider">
-              <ul>
-                <li style="background-image:url(../assets/img/slide1.png)">
-                  <div class="center-y">
-                    <h3 class="title_slider">Система видеонаблюдения</h3>
-                    <a href="#">Проектирование, монтаж и запуск в работу систем видеонаблюдения на производственных объектах</a>	
-                  </div>
-                </li>
-                <li style="background-image:url(../assets/img/Group\ 7.png)">
-                  <div class="center-y">
-                    <h3 class="title_slider">Измерения показателей</h3>
-                    <a href="#">Проектирование, установка и запуск автоматизированных систем измерения продукции.</a>	
-                  </div>
-                </li>
-                <li style="background-image:url(../assets/img/scada.png)">
-                  <div class="center-y">
-                    <h3 class="title_slider">Интеграция SCADA системы</h3>
-                    <a href="#">Разработка, установка и внедрение систем телеметрии для нефтедобывающих объектов, их интеграция в SCADA.</a>	
-                  </div>
-                </li>
-              </ul>
-      
-              <ul>
-                <nav>
-                  <a href="#"></a>
-                  <a href="#"></a>
-                  <a href="#"></a>
-                </nav>
-              </ul>
-            </div>
-          </section> -->
+  
   <div class="container_slider">
     <div class="main">
       <div id="cbp-contentslider" class="cbp-contentslider">
