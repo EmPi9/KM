@@ -15,7 +15,6 @@ $statement->execute();
 $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <style>
-  /* ---- RESET/BASIC STYLING ---- */
 * {
   padding: 0;
   margin: 0;
