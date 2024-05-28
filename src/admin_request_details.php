@@ -137,10 +137,12 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
             >
               Заявка
             </h2>
+  <?php if (is_array($user) && $user['admin'] == 'Администратор'): ?>
 <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
               Добавить задачу
             </h4>
+          
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
@@ -161,7 +163,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </button>
             </div>
             </form>
-
+            <? endif; ?>
 
             <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
@@ -222,13 +224,14 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
           <h3 class="heading">В разработке</h3>
           <?php foreach($kanbans as $kanban):?>
                     <? if ($kanban['id_request'] == $request['id_request'] and $kanban['status_kanban'] == 'В разработке'): ?>
+                      <? if ($kanban['id'] == $user['id']): ?>
                       <button data-modal-target="fin<?= $kanban['id_kanban'] ?>" data-modal-toggle="fin<?= $kanban['id_kanban'] ?>"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                               aria-label="Delete"
                             >
                             Завершить задачу №<?= $kanban['id_kanban'] ?>
                       </button>
-
+                          <? endif; ?>
                       <p class="task border border-gray dark:border-white dark:bg-gray-800 dark:text-gray-200"><?= $kanban['id_kanban']?>. <?= $kanban['task_kanban']?>
                     <br>
                     Разрабатывает: <?= $kanban['employee_kanban']?>
@@ -310,6 +313,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <div class="flex flex-wrap gap-2">
               <div>
                 <!-- Кнопки "Принять" и "Отклонить" -->
+                <?php if (is_array($user) && $user['admin'] == 'Администратор'): ?>
                 <div class="flex items-center space-x-4 text-sm">
                 <? if ($request['status_request'] == 0): ?>
               <button data-modal-target="accept" data-modal-toggle="accept"
@@ -327,7 +331,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
                Отклонить
               </button>
 </div>
-
+<?php endif;?>
           <div id="accept" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
             <div class="relative w-full h-full max-w-md md:h-auto">
                 <!-- Modal content -->

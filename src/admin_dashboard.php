@@ -162,7 +162,7 @@ $requests = getRequests() ?>
 
                       </td>
                       <td>
-                      <a href="./request.php?id_request=<?= $request['id_request']?>" class="px-4 py-3 text-sm">Подробнее</a>
+                      <a href="./admin_request_details.php?id_request=<?= $request['id_request']?>" class="px-4 py-3 text-sm">Подробнее</a>
                       </td>
                     </tr>
                         <? endif; ?>
