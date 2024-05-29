@@ -31,3 +31,15 @@ function getVacancy($id_vacancy){
     $post = $statement->fetch(PDO::FETCH_ASSOC);
     return $post;
 }
+
+function editVacancy($name_vacancy, $respons_vacancy, $requir_vacancy, $conditions_vacancy, $id_vacancy) {
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.vacancy SET name_vacancy=:name_vacancy, respons_vacancy=:respons_vacancy, requir_vacancy=:requir_vacancy, conditions_vacancy=:conditions_vacancy WHERE id_vacancy=:id_vacancy;';
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":name_vacancy", $name_vacancy);
+    $statement->bindValue(":respons_vacancy", $respons_vacancy);
+    $statement->bindValue(":requir_vacancy", $requir_vacancy);
+    $statement->bindValue(":conditions_vacancy", $conditions_vacancy);  
+    $statement->bindValue(":id_vacancy", $id_vacancy);  
+    $statement->execute();
+}

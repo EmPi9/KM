@@ -49,6 +49,18 @@ function delProject($id_project){
     return true;
 }
 
+function editProject($cost_project, $name_project, $type_project, $desc_project, $id_project) {
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.projects SET cost_project=:cost_project, name_project=:name_project, type_project=:type_project, desc_project=:desc_project WHERE id_project=:id_project;';
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":cost_project", $cost_project);
+    $statement->bindValue(":name_project", $name_project);
+    $statement->bindValue(":type_project", $type_project);
+    $statement->bindValue(":desc_project", $desc_project);  
+    $statement->bindValue(":id_project", $id_project);  
+    $statement->execute();
+}
+
 // Комментарии к проектам 
 function addComment($text_comment, $id_project, $username, $id, $date_comment, $rating_comment) {
     $pdo = Connection::get()->connect();

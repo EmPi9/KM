@@ -8,6 +8,7 @@ $projects = getProjects() ?>
       <div class="flex flex-wrap max-w-[1820px] mx-auto">
 
       <?php foreach ($projects as $project):?>
+        <? if ($project['status_project'] == 0): ?>
         <div class="p-4 md:w-1/3 max-h-12">
           <div class="h-full border-2 bg-[#392D88] border-black border-opacity-60 rounded-lg overflow-hidden">
             <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="../assets/img/<?= $project['img_project'] ?>" alt="blog">
@@ -22,6 +23,7 @@ $projects = getProjects() ?>
             </div>
           </div>
         </div>
+          <? endif; ?>
       <?php endforeach;?>
     </div>
     </section>

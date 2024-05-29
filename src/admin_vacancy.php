@@ -102,7 +102,7 @@ $vacancys = getVacancys() ?>
                         </td>
                         <td class="px-4 py-3">
                           <div class="flex items-center space-x-4 text-sm">
-                            <button 
+                            <button data-modal-target="edit<?= $vacancy['id_vacancy'] ?>" data-modal-toggle="edit<?= $vacancy['id_vacancy'] ?>"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                               aria-label="Edit"
                             >
@@ -144,7 +144,7 @@ $vacancys = getVacancys() ?>
                             <div class="relative w-full h-full max-w-md md:h-auto">
                                 <!-- Modal content -->
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="<?= $user['id'] ?>">
+                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="arch<?= $vacancy['id_vacancy'] ?>">
                                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
@@ -159,6 +159,66 @@ $vacancys = getVacancys() ?>
                                 </div>
                             </div>
                         </div>
+
+
+                        <div id="edit<?= $vacancy['id_vacancy'] ?>" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+                            <div class="relative w-full h-full max-w-md md:h-auto">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="edit<?= $vacancy['id_vacancy'] ?>">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                    <form action="../controllers/editVacancy.php" method="post" enctype="multipart/form-data">
+                                      
+                                    <input id="id_vacancy" name="id_vacancy" type="hidden" value="<?= $vacancy['id_vacancy'] ?>">
+                                      <div class="px-6 py-6 mx-auto lg:px-8">
+                                          <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Изменение завершенного проекта # <?= $vacancy['id_vacancy'] ?> </h3>
+
+                                              <label class="block text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Название</span>
+                                                <input name="name_vacancy" id="name_vacancy"
+                                                  class="block w-full w-1/2 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                  placeholder="Jane Doe" value="<?= $vacancy['name_vacancy'] ?>"
+                                                />
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Обязаности</span>
+                                                <textarea name="respons_vacancy" id="respons_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['respons_vacancy'] ?></textarea>
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Требования</span>
+                                                <textarea name="requir_vacancy" id="requir_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['requir_vacancy'] ?></textarea>
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Условия</span>
+                                                <textarea name="conditions_vacancy" id="conditions_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['conditions_vacancy'] ?></textarea>
+                                              </label>
+
+                                            <br>
+                                            <button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Изменить</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
 
                       <? endif; ?>
                    <?php endforeach;?>
@@ -205,14 +265,14 @@ $vacancys = getVacancys() ?>
                         </td>
                         <td class="px-4 py-3 text-sm">
                         <span
-                            class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100"
+                            class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
                           >
                             Архивированно 
                           </span>
                         </td>
                         <td class="px-4 py-3">
                           <div class="flex items-center space-x-4 text-sm">
-                            <button 
+                          <button data-modal-target="edit<?= $vacancy['id_vacancy'] ?>" data-modal-toggle="edit<?= $vacancy['id_vacancy'] ?>"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                               aria-label="Edit"
                             >
@@ -255,7 +315,7 @@ $vacancys = getVacancys() ?>
                             <div class="relative w-full h-full max-w-md md:h-auto">
                                 <!-- Modal content -->
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="<?= $user['id'] ?>">
+                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="back<?= $vacancy['id_vacancy'] ?>">
                                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
@@ -270,6 +330,65 @@ $vacancys = getVacancys() ?>
                                 </div>
                             </div>
                         </div>
+
+                        <div id="edit<?= $vacancy['id_vacancy'] ?>" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+                            <div class="relative w-full h-full max-w-md md:h-auto">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="edit<?= $vacancy['id_vacancy'] ?>">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                    <form action="../controllers/editVacancy.php" method="post" enctype="multipart/form-data">
+                                      
+                                    <input id="id_vacancy" name="id_vacancy" type="hidden" value="<?= $vacancy['id_vacancy'] ?>">
+                                      <div class="px-6 py-6 mx-auto lg:px-8">
+                                          <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Изменение завершенного проекта # <?= $vacancy['id_vacancy'] ?> </h3>
+
+                                              <label class="block text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Название</span>
+                                                <input name="name_vacancy" id="name_vacancy"
+                                                  class="block w-full w-1/2 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                  placeholder="Jane Doe" value="<?= $vacancy['name_vacancy'] ?>"
+                                                />
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Обязаности</span>
+                                                <textarea name="respons_vacancy" id="respons_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['respons_vacancy'] ?></textarea>
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Требования</span>
+                                                <textarea name="requir_vacancy" id="requir_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['requir_vacancy'] ?></textarea>
+                                              </label>
+
+                                              <label class="block mt-4 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Условия</span>
+                                                <textarea name="conditions_vacancy" id="conditions_vacancy"
+                                                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                  rows="3"
+                                                  placeholder="Enter some long form content."
+                                                ><?= $vacancy['conditions_vacancy'] ?></textarea>
+                                              </label>
+
+                                            <br>
+                                            <button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Изменить</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
 
                       <? endif; ?>
                    <?php endforeach;?>
