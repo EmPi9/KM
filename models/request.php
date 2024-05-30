@@ -2,6 +2,7 @@
 session_start();
 include_once 'connection.php';
 
+
 function uploadDocument($document) {
     $extension = pathinfo($document['name'], PATHINFO_EXTENSION); // узнаем расширение файла
     $filename = uniqid() . "." . $extension; // делаем уникальное название файла и добавляем в конец расширение
@@ -98,3 +99,51 @@ function editRequest($name_request, $name_company, $price_request, $description_
     $statement->bindValue(":id_request", $id_request);   
     $statement->execute();
 }
+// Формирование статистики
+function getRequestsStatistics($startYear, $endYear)
+{
+    $pdo = Connection::get()->connect();
+    $query = "
+        SELECT 
+            EXTRACT(YEAR FROM CAST(date_request AS DATE)) AS year,
+            COUNT(id_request) AS total_requests
+        FROM 
+            requests
+        WHERE 
+            EXTRACT(YEAR FROM CAST(date_request AS DATE)) BETWEEN :startYear AND :endYear
+        GROUP BY 
+            year
+        ORDER BY 
+            year
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(['startYear' => $startYear, 'endYear' => $endYear]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getResumesStatistics($startYear, $endYear)
+{
+    $pdo = Connection::get()->connect();
+    $query = "
+        SELECT 
+            EXTRACT(YEAR FROM CAST(exp_resume AS DATE)) AS year,
+            COUNT(id_resume) AS total_resumes
+        FROM 
+            resume
+        WHERE 
+            EXTRACT(YEAR FROM CAST(exp_resume AS DATE)) BETWEEN :startYear AND :endYear
+        GROUP BY 
+            year
+        ORDER BY 
+            year
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(['startYear' => $startYear, 'endYear' => $endYear]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
