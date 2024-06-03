@@ -21,4 +21,4 @@ updateRequest($status_request, $id_request, $comment_request, $worker_request);
     $statement->execute();
  }
  
- header('Location: ../src/admin_dashboard.php');
+ header('Location: ../src/admin_request.php');

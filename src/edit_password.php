@@ -11,6 +11,7 @@
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"><?= $user['username'] ?></h1>
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base"> <?= $user['email'] ?></p>
               </div>
+              <form action="">
               <div class=" md:w-2/3 mx-auto">
                 <div class="flex flex-wrap -m-2">
                   <div class="p-2 w-full">
@@ -39,7 +40,7 @@
                   <div class="flex gap-2 p-2 mt-4 justify-center">
                       <button class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">ИЗМЕНИТЬ ПАРОЛЬ</button>
                   </div>
-
+                  </form>
                   <div class="flex gap-2 p-2 mt-4 justify-center">
                       <a href="./profile.php" class="bg-[#392D88] text-white font-semibold px-10 py-4 rounded-xl border-2 border-[#392D88] hover:bg-white hover:text-[#392D88] transition-all duration-700">НАЗАД</a>
                   </div>

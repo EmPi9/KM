@@ -11,6 +11,7 @@ $vacancys = getVacancys() ?>
 
 
   <?php foreach ($vacancys as $vacancy):?>
+    <? if ($vacancy['status_vacancy'] == 0): ?>
     <label for="chk-<?= $vacancy['id_vacancy'] ?>">
     <input id="chk-<?= $vacancy['id_vacancy'] ?>" type="checkbox"/>
      <div class="title element_animation bottom_animation">
@@ -38,6 +39,7 @@ $vacancys = getVacancys() ?>
           </p>
         </div>
     </label>
+    <?php endif;?>
     <?php endforeach;?>
 
 

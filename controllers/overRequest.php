@@ -1,16 +1,16 @@
 <?
 include_once '../models/request.php';
 
+
 $id_request = $_POST['id_request'];
-$status_request = "2";
 $comment_request = $_POST['comment_request'];
+$status_request = "4";
 
 
-updateRequest($status_request, $id_request, $comment_request);
-
- function updateRequest($status_request, $id_request, $comment_request){
-      $pdo = Connection::get()->connect();
-      $sql = 'UPDATE public.requests
+overRequest($status_request, $id_request, $comment_request);
+ function overRequest($status_request, $id_request, $comment_request){
+    $pdo = Connection::get()->connect();
+    $sql = 'UPDATE public.requests
     SET status_request=:status_request, comment_request=:comment_request
     WHERE id_request=:id_request;';
     $statement = $pdo->prepare($sql);

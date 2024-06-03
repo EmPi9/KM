@@ -406,5 +406,6 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="../assets/js/slider.js"></script>
     <script src="../assets/js/animation_by_scroll.js"></script>
+    
 <?php require '../layouts/footer.php'; ?>
     

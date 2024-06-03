@@ -108,7 +108,7 @@
         <div class="p-4 lg:w-1/2">
           <div
             class="h-full border-2 element_animation left_animation border-black content-center bg-opacity-75 px-8 pt-6 pb-14 rounded-lg overflow-hidden text-center relative mx-auto flex flex-col items-center justify-center">
-            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3">Гость</h1>
+            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3 uppercase">Гость</h1>
             <p class="leading-relaxed mb-6 text-[18px] font-semibold">Просматривать контент на сайте, но не может взаимодействовать.</p>
 
           </div>
@@ -118,7 +118,7 @@
         <div class="p-4 lg:w-1/2">
           <div
             class="h-full border-2 border-black content-center element_animation right_animation bg-opacity-75 px-8 pt-6 pb-14 rounded-lg overflow-hidden text-center relative mx-auto flex flex-col items-center justify-center">
-            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3">Клиент</h1>
+            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3 uppercase">Клиент</h1>
             <p class="leading-relaxed mb-6 text-[18px] font-semibold">Имеет возможность просматривать контент, взаймодествовать с ним: оставлять заявку, резюме и т.п.</p>
 
           </div>
@@ -129,7 +129,7 @@
         <div class="p-4 lg:w-1/2">
           <div
             class="h-full content-center bg-opacity-75 element_animation bottom_animation px-8 pt-6 pb-14 rounded-lg border-2 border-black overflow-hidden text-center relative mx-auto flex flex-col items-center justify-center">
-            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3">Сотрудник</h1>
+            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3 uppercase">Сотрудник</h1>
             <p class="leading-relaxed mb-6 text-[18px] font-semibold">Может просматривать текущие задачи, на заявку и брать их.</p>
 
           </div>
@@ -139,7 +139,7 @@
         <div class="p-4 lg:w-1/2">
           <div
             class="h-full border-2 border-black content-center element_animation bottom_animation bg-opacity-75 px-8 pt-6 pb-14 rounded-lg overflow-hidden text-center relative mx-auto flex flex-col items-center justify-center">
-            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3">Администратор</h1>
+            <h1 class="title-font sm:text-2xl text-xl font-bold text-gray-900 mb-3 uppercase">Администратор</h1>
             <p class="leading-relaxed mb-6 text-[18px] font-semibold">Полное взаимодействие с сайтом: добавление, рдактирование и архивирование контента. Составление задач на заявку и ее отклонение или принятие.</p>
           </div>
         </div>

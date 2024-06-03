@@ -26,7 +26,7 @@ $requests = getRequests() ?>
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                   <?php foreach($requests as $request):?>
-                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3 or $request['status_request'] == 0 or $request['status_request'] == 2): ?>
+                    <? if ($request['status_request'] == 1 or $request['status_request'] == 3 or $request['status_request'] == 0): ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
@@ -107,7 +107,7 @@ $requests = getRequests() ?>
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                   <?php foreach($requests as $request):?>
-                    <? if ($request['status_request'] == 2): ?>
+                    <? if ($request['status_request'] == 2 or $request['status_request'] == 4): ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">    
@@ -123,18 +123,11 @@ $requests = getRequests() ?>
                         <?= $request['name_company']?>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                      <? if ($request['status_request'] == 0): ?>
-                      <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
-                          В ожидании
-                      </span>
-                      <? elseif ($request['status_request'] == 1): ?>
+                      <? if ($request['status_request'] == 4): ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          Принято на подписи
+                          Заверешнно
                       </span>
-                      <? elseif ($request['status_request'] == 3): ?>
-                        <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
-                          В разработке
-                        </span>
+
                       <? else: ?>
                       <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
                           Отклонено

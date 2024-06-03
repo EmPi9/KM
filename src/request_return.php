@@ -45,10 +45,46 @@ $requests = getRequests();
     <?php endforeach;?>
   </div>
 </section>
+<?php if ($user['id'] == $request['id']):?>
+        <? if ($request['status_request'] == 4): ?>
+<h1 class="text-center font-extrabold text-[40px]">Выполненно</h1>
+<?php endif;?>
+      <?php endif;?>
+<section class="text-gray-600 body-font">
+    <div class="flex flex-wrap max-w-[1820px] mx-auto">
+    <?php foreach ($requests as $request):?>
+      <?php if ($user['id'] == $request['id']):?>
+        <? if ($request['status_request'] == 4): ?>
+      <div class="p-4 md:w-1/3 max-h-12">
+        <div class="h-full border-2 bg-[#392D88] border-black border-opacity-60 rounded-lg overflow-hidden">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-white mb-1 uppercase">Код заявки:<?= $request['id_request'] ?></h2>
+            <h1 class="title-font text-lg font-medium text-white mb-3">Статус заявки:
+            <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full ">
+                           Выполненно
+                            </span>
+            </h1>
+            <h1 class="title-font text-lg font-medium text-white mb-10">Название завявки: <?= $request['name_request'] ?></h1>
+            <div class="flex flex-wrap">
+                <a href="../src/request_return_details.php?id_request=<?= $request['id_request']?>" class="px-2 py-1 mx-10 font-semibold text-white px-10 py-4 rounded-xl border-2 border-white">Подробнее</a>
+                <a href="../assets/documents/<?=$request['document_request']?>" class="px-2 py-1 mx-10 font-semibold text-white px-10 py-4 rounded-xl border-2 border-white">Скачать ТЗ</a>
+            </div>                   
+        </div>
+        </div>
+      </div>
+      <?php endif;?>
+      <?php endif;?>
+    <?php endforeach;?>
+  </div>
+  
+</section>
 
-
+<?php if ($user['id'] == $request['id']):?>
+        <? if ($request['status_request'] == 0): ?>
 <h1 class="text-center font-extrabold text-[40px]">В ожидании</h1>
-
+<?php endif;?>
+      <?php endif;?>
 <section class="text-gray-600 body-font">
     <div class="flex flex-wrap max-w-[1820px] mx-auto">
     <?php foreach ($requests as $request):?>
